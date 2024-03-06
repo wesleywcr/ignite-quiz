@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Alert, ScrollView, Text, View } from 'react-native';
+import { Alert, BackHandler, ScrollView, Text, View } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Audio } from 'expo-av';
+import * as Haptics from 'expo-haptics';
 import { styles } from './styles';
 
 import { QUIZ } from '../../data/quiz';
@@ -27,6 +28,7 @@ type QuizProps = typeof QUIZ[0];
 
 const  CARD_INCLINATION = 10
 const CARD_SKIP_AREA = (-200)
+
 export function Quiz() {
   const [points, setPoints] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -88,7 +90,7 @@ export function Quiz() {
 
     if (quiz.questions[currentQuestion].correct === alternativeSelected) {
       setPoints(prevState => prevState + 1);
-      
+
       await  playSound(true)
       setStatusReply(1)
       handleNextQuestion()
@@ -117,17 +119,25 @@ export function Quiz() {
     return true;
   }
 
-  function shakeAnimated(){
+  async function shakeAnimated(){
+    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+
     shake.value = 
-    withSequence(withTiming(3,{duration:400, easing: Easing.bounce}),
-    withSequence(0))
+    withSequence(
+      withTiming(3,{duration:400, easing: Easing.bounce}),
+    withTiming(0, undefined, (finished)=>{
+      'worklet';
+      if(finished){
+        runOnJS(handleNextQuestion)();
+      }
+    }))
   }
   const shakeStyledAnimated = useAnimatedStyle(()=>{
     return{
       transform: [{translateX: interpolate(
         shake.value,
         [0, 0.5, 1, 1.5, 2, 2.5, 3],
-        [0, -15, 0, 15, 0, -15, 0]
+        [0, -15, 0, 15, 0, -15, 0],
       )}]
     }
   })
@@ -197,6 +207,10 @@ export function Quiz() {
       handleNextQuestion();
     }
   }, [points]);
+  useEffect(()=>{
+    const backHandler = BackHandler.addEventListener('hardwareBackPress',handleStop);
+    return ()=> backHandler.remove();
+  },[])
 
   if (isLoading) {
     return <Loading />
