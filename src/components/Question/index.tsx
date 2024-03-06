@@ -23,7 +23,7 @@ export function Question({
   onUnmout 
 }: Props) {
   
-  const enteringKeyframe = new Keyframe({
+   const enteringKeyframe = new Keyframe({
       0:{
         opacity:0,
         transform:[
