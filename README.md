@@ -1,7 +1,6 @@
-# 🏋️‍♂️ Workout App
+# Ignite Quiz
 
-A mobile application built to help users manage and track their workout routines efficiently. The app allows users to explore exercises, mark progress, and view their workout history.
-
+This is a question and answer application about programming, where you will have to answer the questions in each topic to test your knowledge.
 ---
 
 ## 💻 Technologies
@@ -15,16 +14,6 @@ This project was developed using the following technologies:
 - Expo AV
 - Expo Haptics
 - React Native Gesture Handler
-
----
-
-## 🔗 Features
-
-- 📋 List of exercises organized by body part  
-- 🧠 Detailed information for each exercise  
-- ✅ Mark exercises as completed  
-- 📅 Track workout history by day  
-- 👤 User profile management  
 
 ---
 
