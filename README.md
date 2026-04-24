@@ -1,38 +1,50 @@
-<p align="center">
-  <img alt="Rocketseat Education" src="https://avatars.githubusercontent.com/u/69590972?s=200&v=4" width="100px" />
-</p>
+# 🏋️‍♂️ Workout App
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=Rocketseat&message=Education&color=8257e5&labelColor=202024" alt="Rocketseat Project" />
-  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=8257e5&labelColor=202024" alt="License"></a>
-</p>
-
-
-## 💻 Projeto
-
-ignitequiz_template
-
-## 📝 Licença
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+A mobile application built to help users manage and track their workout routines efficiently. The app allows users to explore exercises, mark progress, and view their workout history.
 
 ---
 
-<p align="center">
-  Feito com 💜 by Rocketseat
-</p>
+## 💻 Technologies
 
+This project was developed using the following technologies:
 
-<!--START_SECTION:footer-->
+- React Native
+- TypeScript
+- Expo
+- Skia
+- Expo AV
+- Expo Haptics
+- React Native Gesture Handler
 
-<br />
-<br />
+---
 
-<p align="center">
-  <a href="https://discord.gg/rocketseat" target="_blank">
-    <img align="center" src="https://storage.googleapis.com/golden-wind/comunidade/rodape.svg" alt="banner"/>
-  </a>
-</p>
+## 🔗 Features
 
-<!--END_SECTION:footer-->
+- 📋 List of exercises organized by body part  
+- 🧠 Detailed information for each exercise  
+- ✅ Mark exercises as completed  
+- 📅 Track workout history by day  
+- 👤 User profile management  
 
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js  
+- Expo CLI  
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/wesleywcr/ignite-quiz.git
+
+# Navigate into the project folder
+cd ignite-quiz
+
+# Install dependencies
+npm install
